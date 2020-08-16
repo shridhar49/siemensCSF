@@ -165,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 125,
                   child: CupertinoDatePicker(
                     mode: CupertinoDatePickerMode.date,
-                    maximumDate: DateTime.now(),
+                    maximumDate: DateTime.now().add(Duration(hours: 1)),
                     initialDateTime: DateTime.fromMillisecondsSinceEpoch(globals.dateOfFeedback.toInt()),
                     onDateTimeChanged: (DateTime newDateTime) {
                       // Do something

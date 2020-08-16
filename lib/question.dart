@@ -14,7 +14,6 @@ class QuestionPage extends StatefulWidget {
 }
 
 class QuestionPageState extends State<QuestionPage> {
-//  sprintf("%d/10",[widget.index])
 
   @override
   Widget build(BuildContext context) {
