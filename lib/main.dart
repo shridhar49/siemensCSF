@@ -1,7 +1,7 @@
 import 'package:customersatisfactionform/questions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:customersatisfactionform/globals.dart' as globals;
 void main() {
   runApp(FormPage());
 }
@@ -64,11 +64,21 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController _projectName = new TextEditingController();
   TextEditingController _typeOfProduct = new TextEditingController();
 
-  String clientName = "";
-  String projectName = "";
-  String typeOfProduct = "";
-  var dateOfFeedback = 0.0;
+//  String clientName = "";
+//  String projectName = "";
+//  String typeOfProduct = "";
+//  var dateOfFeedback = 0.0;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      _clientNameController.text = globals.client;
+      _projectName.text = globals.projectName;
+      _typeOfProduct.text = globals.typeOfProduct;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -87,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             TextField(
               onChanged: (text) {
-                clientName = text;
+                globals.client = text;
               },
               controller: _clientNameController,
               style: TextStyle(
@@ -101,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TextField(
               onChanged: (text) {
-                projectName = text;
+                globals.projectName = text;
               },
               controller: _projectName,
               style: TextStyle(
@@ -115,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TextField(
               onChanged: (text) {
-                typeOfProduct = text;
+                globals.typeOfProduct = text;
               },
               controller: _typeOfProduct,
               style: TextStyle(
@@ -156,13 +166,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: CupertinoDatePicker(
                     mode: CupertinoDatePickerMode.date,
                     maximumDate: DateTime.now(),
-                    initialDateTime: DateTime.fromMillisecondsSinceEpoch(
-                        DateTime.now().millisecondsSinceEpoch),
+                    initialDateTime: DateTime.fromMillisecondsSinceEpoch(globals.dateOfFeedback.toInt()),
                     onDateTimeChanged: (DateTime newDateTime) {
                       // Do something
-                      dateOfFeedback =
-                      (newDateTime.millisecondsSinceEpoch.toDouble() /
-                          1000);
+                      globals.dateOfFeedback =
+                      (newDateTime.millisecondsSinceEpoch);
                     },
                   ),
                 ),

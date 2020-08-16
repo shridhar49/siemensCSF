@@ -3,6 +3,8 @@
 import 'package:customersatisfactionform/question.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sprintf/sprintf.dart';
+import 'package:customersatisfactionform/globals.dart' as globals;
 
 class QuestionsPage extends StatefulWidget {
   @override
@@ -29,15 +31,20 @@ class QuestionsPageState extends State<QuestionsPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Feedback"),
+          title: Text( sprintf("Feedback %d/10",[currentPage+1])),
         ),
         floatingActionButton: new FloatingActionButton(
             elevation: 18.0,
             child: new Icon(Icons.navigate_next),
             backgroundColor: new Color(0xFFE57373),
             onPressed: () {
-              currentPage++;
-              _pageController.jumpToPage(currentPage);
+              if(currentPage < 9){
+                setState(() {
+                  currentPage++;
+                });
+                _pageController.jumpToPage(currentPage);
+              }
+
             }),
         body: Column(
           children: <Widget>[
@@ -46,7 +53,9 @@ class QuestionsPageState extends State<QuestionsPage> {
               child: PageView(
                 controller: _pageController,
                 onPageChanged: (index) {
-                  currentPage = index;
+                  setState(() {
+                    currentPage = index;
+                  });
                 },
                 children: <Widget>[
                   QuestionPage(index : 0),
