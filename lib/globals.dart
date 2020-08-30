@@ -18,6 +18,17 @@ library lifetrons.globals;
  String Q9 = "House Keeping on Shop Floor";
  String Q10 = "Overall Opinion";
 
+ String Q1remark = "";
+ String Q2remark = "";
+ String Q3remark = "";
+ String Q4remark = "";
+ String Q5remark = "";
+ String Q6remark = "";
+ String Q7remark = "";
+ String Q8remark = "";
+ String Q9remark = "";
+ String Q10remark = "";
+
  double Q1rating = 0;
  double Q2rating = 0;
  double Q3rating = 0;
@@ -28,3 +39,4 @@ library lifetrons.globals;
  double Q8rating = 0;
  double Q9rating = 0;
  double Q10rating = 0;
+

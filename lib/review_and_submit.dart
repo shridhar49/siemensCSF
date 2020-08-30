@@ -99,7 +99,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q1,
             sprintf("%.1f", [globals.Q1rating]),
-            ""
+            globals.Q1remark
           ];
           salidas.add(recind);
           break;
@@ -107,7 +107,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q2,
             sprintf("%.1f", [globals.Q2rating]),
-            ""
+            globals.Q2remark
           ];
           salidas.add(recind);
           break;
@@ -115,7 +115,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q3,
             sprintf("%.1f", [globals.Q3rating]),
-            ""
+            globals.Q3remark
           ];
           salidas.add(recind);
           break;
@@ -123,7 +123,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q4,
             sprintf("%.1f", [globals.Q4rating]),
-            ""
+            globals.Q4remark
           ];
           salidas.add(recind);
           break;
@@ -131,7 +131,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q5,
             sprintf("%.1f", [globals.Q5rating]),
-            ""
+            globals.Q5remark
           ];
           salidas.add(recind);
           break;
@@ -139,7 +139,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q6,
             sprintf("%.1f", [globals.Q6rating]),
-            ""
+            globals.Q6remark
           ];
           salidas.add(recind);
           break;
@@ -147,7 +147,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q7,
             sprintf("%.1f", [globals.Q7rating]),
-            ""
+            globals.Q7remark
           ];
           salidas.add(recind);
           break;
@@ -155,7 +155,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q8,
             sprintf("%.1f", [globals.Q8rating]),
-            ""
+            globals.Q8remark
           ];
           salidas.add(recind);
           break;
@@ -163,7 +163,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q9,
             sprintf("%.1f", [globals.Q9rating]),
-            ""
+            globals.Q9remark
           ];
           salidas.add(recind);
           break;
@@ -171,7 +171,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q10,
             sprintf("%.1f", [globals.Q10rating]),
-            ""
+            globals.Q10remark
           ];
           salidas.add(recind);
           break;
@@ -186,27 +186,63 @@ class RNSPageState extends State<RNSPage> {
               mainAxisAlignment: pw.MainAxisAlignment.center,
               crossAxisAlignment: pw.CrossAxisAlignment.center,
               children: [
-                pw.SizedBox(
-                  height: 80,
-                  child: pw.Image(siemens_energy),
-                ),
-                pw.Padding(
-                    padding: pw.EdgeInsets.only(top: 5, bottom: 8),
-                    child: pw.FittedBox(
-                        fit: pw.BoxFit.scaleDown,
-                        child: pw.SizedBox(
-                          child: pw.Text(
-                            "Measurement of Customer Satisfaction",
-                            softWrap: true,
-                            textAlign: pw.TextAlign.center,
-                            style: pw.TextStyle(
-                              color: PdfColors.deepPurpleAccent,
-                              fontSize: 28,
-                              fontWeight: pw.FontWeight.bold,
+                pw.Row(
+                  children: [
+                    pw.SizedBox(
+                      height: 50,
+                      width: 50,
+                      child: pw.Image(siemens_energy),
+                    ),
+                    pw.Column(
+                      children: [
+                        pw.Padding(
+                            padding: pw.EdgeInsets.only(right : 5,top: 5, bottom: 8),
+                            child: pw.FittedBox(
+                                fit: pw.BoxFit.scaleDown,
+                                child: pw.SizedBox(
+                                  child: pw.Text(
+                                    "Measurement of Customer Satisfaction (Inspection)",
+                                    softWrap: true,
+                                    textAlign: pw.TextAlign.center,
+                                    style: pw.TextStyle(
+                                      color: PdfColors.deepPurpleAccent,
+                                      fontSize: 14,
+                                      fontWeight: pw.FontWeight.bold,
+                                    ),
+                                  ),
+                                ))),
+                        pw.Row(
+                          children: [
+                            pw.Column(
+                              children: [
+                                pw.Text(
+                                  "Project Name : ${globals.projectName}",
+                                ),
+                                pw.Text(
+                                  "Client Name : ${globals.client}",
+                                ),
+                              ]
                             ),
-                          ),
-                        ))),
+                            pw.Column(
+                                children: [
+                                  pw.Text(
+                                    "Product Type : ${globals.typeOfProduct}",
+                                  ),
+                                  pw.Text(
+                                    "Date : ${globals.dateOfFeedback}",
+                                  ),
+                                ]
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                ),
+
+
                 pw.Table.fromTextArray(context: context, data: salidas),
+                pw.Text( "\n(Legend -> 1/2 : Very Dissatisfied, 3/4 : Dissatisfied, 5/6 :  Neutral, 7/8 : Satisfied, 9/10 : Very Satisfied )",)
               ])
         ]);
       },

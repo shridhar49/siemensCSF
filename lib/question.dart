@@ -15,6 +15,9 @@ class QuestionPage extends StatefulWidget {
 
 class QuestionPageState extends State<QuestionPage> {
 
+  TextEditingController _remark = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,6 +29,10 @@ class QuestionPageState extends State<QuestionPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
+                "Legend \n\n 1/2 : Very Dissatisfied \n 3/4 : Dissatisfied \n 5/6 :  Neutral \n 7/8 : Satisfied \n 9/10 : Very Satisfied \n ",
+                textAlign: TextAlign.center,
+
+              ), Text(
                 getQuestion(),
                 textAlign: TextAlign.center,
 
@@ -44,6 +51,23 @@ class QuestionPageState extends State<QuestionPage> {
                 setRating(value);
               },
             ),
+              TextField(
+                  textCapitalization: TextCapitalization.sentences,
+                  controller: _remark,
+                  maxLength: 50,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontFamily: 'Muli'),
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(0.0),
+                    alignLabelWithHint: true,
+//                      isDense: true,
+                    labelText: 'please enter remark if any',
+                  ),
+                  onChanged: (text) {
+                    setRemark(text);
+                  }),
             ],
           ),
         ),
@@ -134,6 +158,42 @@ class QuestionPageState extends State<QuestionPage> {
         break;
       case 9 :
         globals.Q10rating = rating;
+        break;
+
+    }
+  }
+
+  setRemark(String remark){
+    switch(widget.index){
+      case 0 :
+        globals.Q1remark = remark;
+        break;
+      case 1 :
+        globals.Q2remark = remark;
+        break;
+      case 2 :
+        globals.Q3remark = remark;
+        break;
+      case 3 :
+        globals.Q4remark = remark;
+        break;
+      case 4 :
+        globals.Q5remark = remark;
+        break;
+      case 5 :
+        globals.Q6remark = remark;
+        break;
+      case 6 :
+        globals.Q7remark = remark;
+        break;
+      case 7 :
+        globals.Q8remark = remark;
+        break;
+      case 8 :
+        globals.Q9remark = remark;
+        break;
+      case 9 :
+        globals.Q10remark = remark;
         break;
 
     }
