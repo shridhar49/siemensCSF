@@ -28,7 +28,7 @@ class QuestionPageState extends State<QuestionPage> {
               Text(
                 getQuestion(),
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'Muli'),
+
               ),
             SmoothStarRating(
               rating: getRating(),
