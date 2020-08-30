@@ -97,15 +97,92 @@ class QuestionsPageState extends State<QuestionsPage> {
     );
 
     List<List<String>> salidas = new List();
-    salidas.add(<String>['Title1','Title2','Title n']);
+    salidas.add(<String>['Quality Aspect','Satisfaction Level','Remarks']);
 
-    for(var indice=0;indice<5;indice++) {
-      List<String> recind = <String>[
-        "1",
-        "Pune",
-        "411024"
-      ];
-      salidas.add(recind);
+    for(var indice=0;indice<10;indice++) {
+      switch(indice){
+        case 0 :
+          List<String> recind = <String>[
+            globals.Q1,
+            sprintf("%.1f",[globals.Q1rating]),
+            ""
+          ];
+          salidas.add(recind);
+          break;
+        case 1 :
+          List<String> recind = <String>[
+            globals.Q2,
+            sprintf("%.1f",[globals.Q2rating]),
+            ""
+          ];
+          salidas.add(recind);
+          break;
+        case 2 :
+          List<String> recind = <String>[
+            globals.Q3,
+            sprintf("%.1f",[globals.Q3rating]),
+            ""
+          ];
+          salidas.add(recind);
+          break;
+        case 3 :
+          List<String> recind = <String>[
+            globals.Q4,
+            sprintf("%.1f",[globals.Q4rating]),
+            ""
+          ];
+          salidas.add(recind);
+          break;
+        case 4 :
+          List<String> recind = <String>[
+            globals.Q5,
+            sprintf("%.1f",[globals.Q5rating]),
+            ""
+          ];
+          salidas.add(recind);
+          break;
+        case 5 :
+          List<String> recind = <String>[
+            globals.Q6,
+            sprintf("%.1f",[globals.Q6rating]),
+            ""
+          ];
+          salidas.add(recind);
+          break;
+        case 6 :
+          List<String> recind = <String>[
+            globals.Q7,
+            sprintf("%.1f",[globals.Q7rating]),
+            ""
+          ];
+          salidas.add(recind);
+          break;
+        case 7 :
+          List<String> recind = <String>[
+            globals.Q8,
+            sprintf("%.1f",[globals.Q8rating]),
+            ""
+          ];
+          salidas.add(recind);
+          break;
+        case 8 :
+          List<String> recind = <String>[
+            globals.Q9,
+            sprintf("%.1f",[globals.Q9rating]),
+            ""
+          ];
+          salidas.add(recind);
+          break;
+        case 9 :
+          List<String> recind = <String>[
+            globals.Q10,
+            sprintf("%.1f",[globals.Q10rating]),
+            ""
+          ];
+          salidas.add(recind);
+          break;
+      }
+
     }
 
     pdf.addPage(pw.Page(
