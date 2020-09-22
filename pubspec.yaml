@@ -35,6 +35,8 @@ dependencies:
   path_provider: ^1.6.11
   open_file: ^3.0.1
   fluttertoast: ^4.0.0
+  flutter_signature_pad: ^2.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,4 +1,5 @@
 import 'package:customersatisfactionform/review_and_submit.dart';
+import 'package:customersatisfactionform/signature_and_remark.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:open_file/open_file.dart';
 import 'dart:io';
@@ -74,7 +75,7 @@ class QuestionsPageState extends State<QuestionsPage> {
                   _pageController.jumpToPage(currentPage);
                 }else {
                   Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (_) => RNSPage()),
+                      MaterialPageRoute(builder: (_) => signature_and_remark()),
                           (Route<dynamic> route) => false);
                 }
 

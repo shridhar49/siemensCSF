@@ -91,7 +91,7 @@ class RNSPageState extends State<RNSPage> {
     );
 
     List<List<String>> salidas = new List();
-    salidas.add(<String>['Quality Aspect', 'Satisfaction Level', 'Remarks']);
+    salidas.add(<String>['Quality Aspect', 'Satisfaction Level']);
 
     for (var indice = 0; indice < 10; indice++) {
       switch (indice) {
@@ -99,7 +99,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q1,
             sprintf("%.1f", [globals.Q1rating]),
-            globals.Q1remark
+//            globals.Q1remark
           ];
           salidas.add(recind);
           break;
@@ -107,7 +107,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q2,
             sprintf("%.1f", [globals.Q2rating]),
-            globals.Q2remark
+//            globals.Q2remark
           ];
           salidas.add(recind);
           break;
@@ -115,7 +115,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q3,
             sprintf("%.1f", [globals.Q3rating]),
-            globals.Q3remark
+//            globals.Q3remark
           ];
           salidas.add(recind);
           break;
@@ -123,7 +123,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q4,
             sprintf("%.1f", [globals.Q4rating]),
-            globals.Q4remark
+//            globals.Q4remark
           ];
           salidas.add(recind);
           break;
@@ -131,7 +131,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q5,
             sprintf("%.1f", [globals.Q5rating]),
-            globals.Q5remark
+//            globals.Q5remark
           ];
           salidas.add(recind);
           break;
@@ -139,7 +139,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q6,
             sprintf("%.1f", [globals.Q6rating]),
-            globals.Q6remark
+//            globals.Q6remark
           ];
           salidas.add(recind);
           break;
@@ -147,7 +147,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q7,
             sprintf("%.1f", [globals.Q7rating]),
-            globals.Q7remark
+//            globals.Q7remark
           ];
           salidas.add(recind);
           break;
@@ -155,7 +155,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q8,
             sprintf("%.1f", [globals.Q8rating]),
-            globals.Q8remark
+//            globals.Q8remark
           ];
           salidas.add(recind);
           break;
@@ -163,7 +163,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q9,
             sprintf("%.1f", [globals.Q9rating]),
-            globals.Q9remark
+//            globals.Q9remark
           ];
           salidas.add(recind);
           break;
@@ -171,7 +171,7 @@ class RNSPageState extends State<RNSPage> {
           List<String> recind = <String>[
             globals.Q10,
             sprintf("%.1f", [globals.Q10rating]),
-            globals.Q10remark
+//            globals.Q10remark
           ];
           salidas.add(recind);
           break;
@@ -211,7 +211,7 @@ class RNSPageState extends State<RNSPage> {
                                     ),
                                   ),
                                 ))),
-                        pw.Row(
+                        pw.Column(
                           children: [
                             pw.Column(
                               children: [
