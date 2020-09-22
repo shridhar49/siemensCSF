@@ -90,6 +90,11 @@ class RNSPageState extends State<RNSPage> {
           .asUint8List(),
     );
 
+    final signature = PdfImage.file(
+      pdf.document,
+      bytes: globals.signature.buffer.asUint8List(),
+    );
+
     List<List<String>> salidas = new List();
     salidas.add(<String>['Quality Aspect', 'Satisfaction Level']);
 
@@ -240,9 +245,15 @@ class RNSPageState extends State<RNSPage> {
                   ]
                 ),
 
-
+                pw.Text( "\n(Legend -> 1/2 : Very Dissatisfied, 3/4 : Dissatisfied, 5/6 :  Neutral, 7/8 : Satisfied, 9/10 : Very Satisfied )",),
                 pw.Table.fromTextArray(context: context, data: salidas),
-                pw.Text( "\n(Legend -> 1/2 : Very Dissatisfied, 3/4 : Dissatisfied, 5/6 :  Neutral, 7/8 : Satisfied, 9/10 : Very Satisfied )",)
+                pw.Text( "\nRemark : ${globals.remark}",),
+                pw.SizedBox(
+                  height: 50,
+                  width: 50,
+                  child: pw.Image(signature),
+                ),
+                pw.Text( "Customers Signature"),
               ])
         ]);
       },
