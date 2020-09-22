@@ -96,87 +96,177 @@ class RNSPageState extends State<RNSPage> {
     );
 
     List<List<String>> salidas = new List();
-    salidas.add(<String>['Quality Aspect', 'Satisfaction Level']);
+    salidas.add(<String>['Quality Aspect', '1','2','3','4','5','6','7','8','9','10']);
 
     for (var indice = 0; indice < 10; indice++) {
       switch (indice) {
         case 0:
+          var rating = globals.Q1rating.toInt();
           List<String> recind = <String>[
             globals.Q1,
-            sprintf("%.1f", [globals.Q1rating]),
-//            globals.Q1remark
+            rating == 1 ? "*" : "",
+            rating == 2 ? "*" : "",
+            rating == 3 ? "*" : "",
+            rating == 4 ? "*" : "",
+            rating == 5 ? "*" : "",
+            rating == 6 ? "*" : "",
+            rating == 7 ? "*" : "",
+            rating == 8 ? "*" : "",
+            rating == 9 ? "*" : "",
+            rating == 10 ? "*" : "",
           ];
           salidas.add(recind);
           break;
         case 1:
+          var rating = globals.Q2rating.toInt();
           List<String> recind = <String>[
             globals.Q2,
-            sprintf("%.1f", [globals.Q2rating]),
-//            globals.Q2remark
+            rating == 1 ? "*" : "",
+            rating == 2 ? "*" : "",
+            rating == 3 ? "*" : "",
+            rating == 4 ? "*" : "",
+            rating == 5 ? "*" : "",
+            rating == 6 ? "*" : "",
+            rating == 7 ? "*" : "",
+            rating == 8 ? "*" : "",
+            rating == 9 ? "*" : "",
+            rating == 10 ? "*" : "",
           ];
           salidas.add(recind);
           break;
         case 2:
+          var rating = globals.Q3rating.toInt();
           List<String> recind = <String>[
             globals.Q3,
-            sprintf("%.1f", [globals.Q3rating]),
-//            globals.Q3remark
+            rating == 1 ? "*" : "",
+            rating == 2 ? "*" : "",
+            rating == 3 ? "*" : "",
+            rating == 4 ? "*" : "",
+            rating == 5 ? "*" : "",
+            rating == 6 ? "*" : "",
+            rating == 7 ? "*" : "",
+            rating == 8 ? "*" : "",
+            rating == 9 ? "*" : "",
+            rating == 10 ? "*" : "",
           ];
           salidas.add(recind);
           break;
         case 3:
+          var rating = globals.Q4rating.toInt();
           List<String> recind = <String>[
             globals.Q4,
-            sprintf("%.1f", [globals.Q4rating]),
-//            globals.Q4remark
+            rating == 1 ? "*" : "",
+            rating == 2 ? "*" : "",
+            rating == 3 ? "*" : "",
+            rating == 4 ? "*" : "",
+            rating == 5 ? "*" : "",
+            rating == 6 ? "*" : "",
+            rating == 7 ? "*" : "",
+            rating == 8 ? "*" : "",
+            rating == 9 ? "*" : "",
+            rating == 10 ? "*" : "",
           ];
           salidas.add(recind);
           break;
         case 4:
+          var rating = globals.Q5rating.toInt();
           List<String> recind = <String>[
             globals.Q5,
-            sprintf("%.1f", [globals.Q5rating]),
-//            globals.Q5remark
+            rating == 1 ? "*" : "",
+            rating == 2 ? "*" : "",
+            rating == 3 ? "*" : "",
+            rating == 4 ? "*" : "",
+            rating == 5 ? "*" : "",
+            rating == 6 ? "*" : "",
+            rating == 7 ? "*" : "",
+            rating == 8 ? "*" : "",
+            rating == 9 ? "*" : "",
+            rating == 10 ? "*" : "",
           ];
           salidas.add(recind);
           break;
         case 5:
+          var rating = globals.Q6rating.toInt();
           List<String> recind = <String>[
             globals.Q6,
-            sprintf("%.1f", [globals.Q6rating]),
-//            globals.Q6remark
+            rating == 1 ? "*" : "",
+            rating == 2 ? "*" : "",
+            rating == 3 ? "*" : "",
+            rating == 4 ? "*" : "",
+            rating == 5 ? "*" : "",
+            rating == 6 ? "*" : "",
+            rating == 7 ? "*" : "",
+            rating == 8 ? "*" : "",
+            rating == 9 ? "*" : "",
+            rating == 10 ? "*" : "",
           ];
           salidas.add(recind);
           break;
         case 6:
+          var rating = globals.Q7rating.toInt();
           List<String> recind = <String>[
             globals.Q7,
-            sprintf("%.1f", [globals.Q7rating]),
-//            globals.Q7remark
+            rating == 1 ? "*" : "",
+            rating == 2 ? "*" : "",
+            rating == 3 ? "*" : "",
+            rating == 4 ? "*" : "",
+            rating == 5 ? "*" : "",
+            rating == 6 ? "*" : "",
+            rating == 7 ? "*" : "",
+            rating == 8 ? "*" : "",
+            rating == 9 ? "*" : "",
+            rating == 10 ? "*" : "",
           ];
           salidas.add(recind);
           break;
         case 7:
+          var rating = globals.Q8rating.toInt();
           List<String> recind = <String>[
             globals.Q8,
-            sprintf("%.1f", [globals.Q8rating]),
-//            globals.Q8remark
+            rating == 1 ? "*" : "",
+            rating == 2 ? "*" : "",
+            rating == 3 ? "*" : "",
+            rating == 4 ? "*" : "",
+            rating == 5 ? "*" : "",
+            rating == 6 ? "*" : "",
+            rating == 7 ? "*" : "",
+            rating == 8 ? "*" : "",
+            rating == 9 ? "*" : "",
+            rating == 10 ? "*" : "",
           ];
           salidas.add(recind);
           break;
         case 8:
+          var rating = globals.Q9rating.toInt();
           List<String> recind = <String>[
             globals.Q9,
-            sprintf("%.1f", [globals.Q9rating]),
-//            globals.Q9remark
+            rating == 1 ? "*" : "",
+            rating == 2 ? "*" : "",
+            rating == 3 ? "*" : "",
+            rating == 4 ? "*" : "",
+            rating == 5 ? "*" : "",
+            rating == 6 ? "*" : "",
+            rating == 7 ? "*" : "",
+            rating == 8 ? "*" : "",
+            rating == 9 ? "*" : "",
+            rating == 10 ? "*" : "",
           ];
           salidas.add(recind);
           break;
         case 9:
+          var rating = globals.Q10rating.toInt();
           List<String> recind = <String>[
             globals.Q10,
-            sprintf("%.1f", [globals.Q10rating]),
-//            globals.Q10remark
+            rating == 1 ? "*" : "",
+            rating == 2 ? "*" : "",
+            rating == 3 ? "*" : "",
+            rating == 4 ? "*" : "",
+            rating == 5 ? "*" : "",
+            rating == 6 ? "*" : "",
+            rating == 7 ? "*" : "",
+            rating == 8 ? "*" : "",
+            rating == 9 ? "*" : "",
+            rating == 10 ? "*" : "",
           ];
           salidas.add(recind);
           break;
