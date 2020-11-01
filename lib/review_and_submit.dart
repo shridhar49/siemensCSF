@@ -324,10 +324,16 @@ class RNSPageState extends State<RNSPage> {
                                       pw.Text(
                                         "Project Name : ${globals.projectName}",
                                         textAlign: pw.TextAlign.left,
+                                        style: pw.TextStyle(
+                                            fontWeight: pw.FontWeight.bold,
+                                            color: PdfColors.black),
                                       ),
                                       pw.Text(
                                         "Client Name : ${globals.client}",
                                         textAlign: pw.TextAlign.left,
+                                        style: pw.TextStyle(
+                                            fontWeight: pw.FontWeight.bold,
+                                            color: PdfColors.black),
                                       ),
                                     ]
                                 ),
@@ -338,12 +344,18 @@ class RNSPageState extends State<RNSPage> {
                                         pw.Text(
                                           "Product Type : ${globals.typeOfProduct}",
                                           textAlign: pw.TextAlign.left,
+                                          style: pw.TextStyle(
+                                              fontWeight: pw.FontWeight.bold,
+                                              color: PdfColors.black),
                                         ),
                                         pw.Text(
                                           "Date : ${DateFormat('dd MMM yyyy').format(
                                               DateTime.fromMillisecondsSinceEpoch(
                                                   globals.dateOfFeedback))}",
                                           textAlign: pw.TextAlign.left,
+                                          style: pw.TextStyle(
+                                              fontWeight: pw.FontWeight.bold,
+                                              color: PdfColors.black),
                                         ),
                                       ]
                                   )
@@ -373,6 +385,15 @@ class RNSPageState extends State<RNSPage> {
                     ),
                     pw.Text(
                       "Customers Signature",
+                      style: pw.TextStyle(
+                          fontWeight: pw.FontWeight.bold,
+                          color: PdfColors.black),
+                    ),
+                    pw.Text(
+                      "Name : ${globals.client}",
+                    ),
+                    pw.Text(
+                      "Designation : ${globals.designation}",
                     ),
                   ]
               ),

@@ -4,13 +4,14 @@ import 'dart:typed_data';
 
 
  String client = "";
+ String designation = "";
  String projectName = "";
  String typeOfProduct = "";
  int dateOfFeedback =  DateTime.now().millisecondsSinceEpoch;
 
 
  String Q1 = "Timeliness of Inspection Call";
- String Q2 = "Readiness of the board";
+ String Q2 = "Readiness of GIS SWITCHGEAR";
  String Q3 = "Visual & Aesthetic Impact (Workmanship)";
  String Q4 = "Safety Precautions during Testing";
  String Q5 = "Equipment Used for Testing";
@@ -18,7 +19,7 @@ import 'dart:typed_data';
  String Q7 = "Clarifications to your Technical Queries";
  String Q8 = "Adequacy of Test documents / Reports";
  String Q9 = "House Keeping on Shop Floor";
- String Q10 = "Overall Opinion";
+ String Q10 = "Quality of Audio, Video for online FAT/ Physical FAT set up";
 
  String remark = "";
 // String Q1remark = "";

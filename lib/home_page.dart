@@ -24,6 +24,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   TextEditingController _clientNameController = new TextEditingController();
+  TextEditingController _designationController = new TextEditingController();
   TextEditingController _projectName = new TextEditingController();
   TextEditingController _typeOfProduct = new TextEditingController();
 
@@ -38,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     setState(() {
       _clientNameController.text = globals.client;
+      _designationController.text = globals.designation;
       _projectName.text = globals.projectName;
       _typeOfProduct.text = globals.typeOfProduct;
     });
@@ -72,6 +74,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: InputDecoration(
                   alignLabelWithHint: true,
                   labelText: 'Client : ',
+                ),
+              ),
+              TextField(
+                onChanged: (text) {
+                  globals.designation = text;
+                },
+                controller: _designationController,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                ),
+                decoration: InputDecoration(
+                  alignLabelWithHint: true,
+                  labelText: 'Designation : ',
                 ),
               ),
               TextField(
@@ -151,6 +167,15 @@ class _MyHomePageState extends State<MyHomePage> {
           if (_clientNameController.text.length == 0)
             Fluttertoast.showToast(
                 msg: "Please enter client name",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.CENTER,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 16.0);
+          else if (_designationController.text.length == 0)
+            Fluttertoast.showToast(
+                msg: "Please enter designation",
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.CENTER,
                 timeInSecForIosWeb: 1,
