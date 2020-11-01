@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
@@ -278,77 +279,105 @@ class RNSPageState extends State<RNSPage> {
       build: (pw.Context context) {
         return pw.Column(children: [
           pw.Column(
-              mainAxisAlignment: pw.MainAxisAlignment.center,
-              crossAxisAlignment: pw.CrossAxisAlignment.center,
+//              mainAxisAlignment: pw.MainAxisAlignment.center,
+//              crossAxisAlignment: pw.CrossAxisAlignment.center,
               children: [
-                pw.Row(
-                  children: [
-                    pw.SizedBox(
-                      height: 50,
-                      width: 50,
-                      child: pw.Image(siemens_energy),
+                pw.Align(
+                  alignment: pw.Alignment.centerLeft,
+                  child: pw.Container(
+                    child: pw.Text(
+                      "SIEMENS",
+                      style: pw.TextStyle(
+                          fontSize: ScreenUtil().setWidth(30),
+                          fontWeight: pw.FontWeight.bold,
+                          color: PdfColors.black),
                     ),
-                    pw.Column(
-                      children: [
-                        pw.Padding(
-                            padding: pw.EdgeInsets.only(right : 5,top: 5, bottom: 8),
-                            child: pw.FittedBox(
-                                fit: pw.BoxFit.scaleDown,
-                                child: pw.SizedBox(
-                                  child: pw.Text(
-                                    "Measurement of Customer Satisfaction (Inspection)",
-                                    softWrap: true,
-                                    textAlign: pw.TextAlign.center,
-                                    style: pw.TextStyle(
-                                      color: PdfColors.deepPurpleAccent,
-                                      fontSize: 14,
-                                      fontWeight: pw.FontWeight.bold,
-                                    ),
+                  ),
+                ),
+                pw.Column(
+                    children: [
+                      pw.Padding(
+                          padding: const pw.EdgeInsets.all(10),
+                          child: pw.FittedBox(
+                              fit: pw.BoxFit.scaleDown,
+                              child: pw.SizedBox(
+                                child: pw.Text(
+                                  "Measurement of Customer Satisfaction (Inspection)",
+                                  softWrap: true,
+                                  textAlign: pw.TextAlign.center,
+                                  style: pw.TextStyle(
+                                    color: PdfColors.deepPurpleAccent,
+                                    fontSize: 14,
+                                    fontWeight: pw.FontWeight.bold,
                                   ),
-                                ))),
-                        pw.Column(
-                          children: [
-                            pw.Column(
-                              children: [
-                                pw.Text(
-                                  "Project Name : ${globals.projectName}",
                                 ),
-                                pw.Text(
-                                  "Client Name : ${globals.client}",
+                              ))),
+                      pw.Padding(
+                          padding: const pw.EdgeInsets.all(8.0),
+                        child: pw.Row(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                            children: [
+                              pw.Align(
+                                child: pw.Column(
+                                    children: [
+                                      pw.Text(
+                                        "Project Name : ${globals.projectName}",
+                                        textAlign: pw.TextAlign.left,
+                                      ),
+                                      pw.Text(
+                                        "Client Name : ${globals.client}",
+                                        textAlign: pw.TextAlign.left,
+                                      ),
+                                    ]
                                 ),
-                              ]
-                            ),
-                            pw.Column(
-                                children: [
-                                  pw.Text(
-                                    "Product Type : ${globals.typeOfProduct}",
-                                  ),
-                                  pw.Text(
-                                    "Date : ${DateFormat('dd MMM yyyy').format(
-                                        DateTime.fromMillisecondsSinceEpoch(
-                                            globals.dateOfFeedback))}",
-                                  ),
-                                ]
-                            )
-                          ]
+                              ),
+                              pw.Align(
+                                  child: pw.Column(
+                                      children: [
+                                        pw.Text(
+                                          "Product Type : ${globals.typeOfProduct}",
+                                          textAlign: pw.TextAlign.left,
+                                        ),
+                                        pw.Text(
+                                          "Date : ${DateFormat('dd MMM yyyy').format(
+                                              DateTime.fromMillisecondsSinceEpoch(
+                                                  globals.dateOfFeedback))}",
+                                          textAlign: pw.TextAlign.left,
+                                        ),
+                                      ]
+                                  )
+                              ),
+                            ]
                         )
-                      ]
-                    )
-                  ]
+                      ),
+                    ]
                 ),
 
                 pw.Text( "\n(Legend -> 1/2 : Very Dissatisfied, 3/4 : Dissatisfied,\n 5/6 :  Neutral, 7/8 : Satisfied, 9/10 : Very Satisfied )\n",),
                 pw.Table.fromTextArray(context: context, data: salidas),
                 pw.Text( "\nRemark : ${globals.remark}",),
-                pw.SizedBox(
-                  height: 50,
-                  width: 50,
-                  child: pw.Image(signature),
-                ),
-                pw.Text(
-                  "Customers Signature",
+
+              ]),
+
+          pw.Expanded(
+            child: pw.Align(
+              alignment: pw.Alignment.bottomLeft,
+              child: pw.Column(
+                  mainAxisAlignment: pw.MainAxisAlignment.end,
+                  children: [
+                    pw.SizedBox(
+                      height: 50,
+                      width: 50,
+                      child: pw.Image(signature),
                     ),
-              ])
+                    pw.Text(
+                      "Customers Signature",
+                    ),
+                  ]
+              ),
+            ),
+          ),
         ]);
       },
     ));

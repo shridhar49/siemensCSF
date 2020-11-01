@@ -6,6 +6,7 @@ import 'package:customersatisfactionform/review_and_submit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
 import 'package:customersatisfactionform/globals.dart' as globals;
 import 'package:fluttertoast/fluttertoast.dart';
@@ -26,46 +27,59 @@ class SNRPageState extends State<signature_and_remark> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Remark & Signature"),
+      ),
       body: Column(
         children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: TextFormField(
+              controller: _remark,
+              keyboardType: TextInputType.multiline,
+              textInputAction: TextInputAction.newline,
+              maxLines: 5,
+              maxLength: 250,
+              maxLengthEnforced: true,
+              decoration: InputDecoration(
+                labelText: 'Remark',
+                hintText: 'please enter remark',
+                alignLabelWithHint: true,
+                labelStyle: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
+              ),
+                onChanged: (text) {
+                  setRemark(text);
+                },
+              style: TextStyle(fontSize: 20.0, color: Colors.black),
+            ),
+          ),
+          Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text("Signature box")
+          ),
           SizedBox(
             width: double.infinity,
-            height: 500,
+            height: ScreenUtil().setHeight(300),
             child: Container(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Signature(
-                  color: color,
-                  key: _sign,
-                  onSign: () {
-                    final sign = _sign.currentState;
-                    debugPrint('${sign.points.length} points in the signature');
-                  },
-//                  backgroundPainter: _WatermarkPaint("2.0", "2.0"),
-                  strokeWidth: strokeWidth,
-                ),
+              margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              padding: const EdgeInsets.all(3.0),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black)
               ),
-              color: Colors.black12,
+              child: Signature(
+                color: color,
+                key: _sign,
+                onSign: () {
+                  final sign = _sign.currentState;
+                  debugPrint('${sign.points.length} points in the signature');
+                },
+//                  backgroundPainter: _WatermarkPaint("2.0", "2.0"),
+                strokeWidth: strokeWidth,
+              ),
             ),
           ),
 //          _img.buffer.lengthInBytes == 0 ? Container() : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
-          TextField(
-              textCapitalization: TextCapitalization.sentences,
-              controller: _remark,
-              maxLength: 50,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontFamily: 'Muli'),
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.all(0.0),
-                alignLabelWithHint: true,
-//                      isDense: true,
-                labelText: 'please enter remark',
-              ),
-              onChanged: (text) {
-                setRemark(text);
-              }),
+
           Column(
             children: <Widget>[
               Row(

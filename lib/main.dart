@@ -91,12 +91,15 @@ class FirstPagePageState extends State<FirstPagePage> {
         body: Container(
           color: Colors.white,
           child: Center(
-            child: Text("Request your feedback based on FAT conducted by GIS works, kindly mark your rating for the individual question",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: ScreenUtil().setWidth(50),
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text("Request your feedback based on FAT conducted by GIS works, kindly mark your rating for the individual question",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: ScreenUtil().setWidth(50),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
             ),
           ),
         ),

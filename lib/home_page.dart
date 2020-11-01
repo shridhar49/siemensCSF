@@ -55,91 +55,94 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("CSF"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              onChanged: (text) {
-                globals.client = text;
-              },
-              controller: _clientNameController,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextField(
+                onChanged: (text) {
+                  globals.client = text;
+                },
+                controller: _clientNameController,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                ),
+                decoration: InputDecoration(
+                  alignLabelWithHint: true,
+                  labelText: 'Client : ',
+                ),
               ),
-              decoration: InputDecoration(
-                alignLabelWithHint: true,
-                labelText: 'Client : ',
+              TextField(
+                onChanged: (text) {
+                  globals.projectName = text;
+                },
+                controller: _projectName,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                ),
+                decoration: InputDecoration(
+                  alignLabelWithHint: true,
+                  labelText: 'Project Name : ',
+                ),
               ),
-            ),
-            TextField(
-              onChanged: (text) {
-                globals.projectName = text;
-              },
-              controller: _projectName,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
+              TextField(
+                onChanged: (text) {
+                  globals.typeOfProduct = text;
+                },
+                controller: _typeOfProduct,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                ),
+                decoration: InputDecoration(
+                  alignLabelWithHint: true,
+                  labelText: 'Type Of Product : ',
+                ),
               ),
-              decoration: InputDecoration(
-                alignLabelWithHint: true,
-                labelText: 'Project Name : ',
-              ),
-            ),
-            TextField(
-              onChanged: (text) {
-                globals.typeOfProduct = text;
-              },
-              controller: _typeOfProduct,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-              ),
-              decoration: InputDecoration(
-                alignLabelWithHint: true,
-                labelText: 'Type Of Product : ',
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'Date : ',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 25),
-                  ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Date : ',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25),
+                    ),
 
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CupertinoTheme(
-                data: CupertinoThemeData(
-                  textTheme: CupertinoTextThemeData(
-                    dateTimePickerTextStyle: TextStyle(
-                        fontSize: 25,color: Colors.deepPurple),
-                  ),
-                ),
-                child: SizedBox(
-                  height: 125,
-                  child: CupertinoDatePicker(
-                    mode: CupertinoDatePickerMode.date,
-                    maximumDate: DateTime.now().add(Duration(hours: 1)),
-                    initialDateTime: DateTime.fromMillisecondsSinceEpoch(globals.dateOfFeedback.toInt()),
-                    onDateTimeChanged: (DateTime newDateTime) {
-                      // Do something
-                      globals.dateOfFeedback =
-                      (newDateTime.millisecondsSinceEpoch);
-                    },
-                  ),
+                  ],
                 ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CupertinoTheme(
+                  data: CupertinoThemeData(
+                    textTheme: CupertinoTextThemeData(
+                      dateTimePickerTextStyle: TextStyle(
+                          fontSize: 25,color: Colors.deepPurple),
+                    ),
+                  ),
+                  child: SizedBox(
+                    height: 125,
+                    child: CupertinoDatePicker(
+                      mode: CupertinoDatePickerMode.date,
+                      maximumDate: DateTime.now().add(Duration(hours: 1)),
+                      initialDateTime: DateTime.fromMillisecondsSinceEpoch(globals.dateOfFeedback.toInt()),
+                      onDateTimeChanged: (DateTime newDateTime) {
+                        // Do something
+                        globals.dateOfFeedback =
+                        (newDateTime.millisecondsSinceEpoch);
+                      },
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
