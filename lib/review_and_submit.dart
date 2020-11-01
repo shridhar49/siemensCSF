@@ -320,6 +320,7 @@ class RNSPageState extends State<RNSPage> {
                             children: [
                               pw.Align(
                                 child: pw.Column(
+                                    crossAxisAlignment: pw.CrossAxisAlignment.start,
                                     children: [
                                       pw.Text(
                                         "Project Name : ${globals.projectName}",
@@ -340,6 +341,7 @@ class RNSPageState extends State<RNSPage> {
                               ),
                               pw.Align(
                                   child: pw.Column(
+                                      crossAxisAlignment: pw.CrossAxisAlignment.start,
                                       children: [
                                         pw.Text(
                                           "Product Type : ${globals.typeOfProduct}",
@@ -377,6 +379,7 @@ class RNSPageState extends State<RNSPage> {
               alignment: pw.Alignment.bottomLeft,
               child: pw.Column(
                   mainAxisAlignment: pw.MainAxisAlignment.end,
+                  crossAxisAlignment: pw.CrossAxisAlignment.start,
                   children: [
                     pw.SizedBox(
                       height: 50,
@@ -385,15 +388,18 @@ class RNSPageState extends State<RNSPage> {
                     ),
                     pw.Text(
                       "Customers Signature",
+                      textAlign: pw.TextAlign.left,
                       style: pw.TextStyle(
                           fontWeight: pw.FontWeight.bold,
                           color: PdfColors.black),
                     ),
                     pw.Text(
                       "Name : ${globals.client}",
+                      textAlign: pw.TextAlign.left,
                     ),
                     pw.Text(
                       "Designation : ${globals.designation}",
+                      textAlign: pw.TextAlign.left,
                     ),
                   ]
               ),
