@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:sprintf/sprintf.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:customersatisfactionform/globals.dart' as globals;
@@ -25,27 +26,64 @@ class QuestionPageState extends State<QuestionPage> {
 
         body:  Container(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(
-                "Legend \n\n 1/2 : Very Dissatisfied \n 3/4 : Dissatisfied \n 5/6 :  Neutral \n 7/8 : Satisfied \n 9/10 : Very Satisfied \n ",
-                textAlign: TextAlign.center,
-
-              ), Text(
-                getQuestion(),
-                textAlign: TextAlign.center,
-
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children:[
+                    Expanded(
+                      child: Text(
+                        getQuestion(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: ScreenUtil().setWidth(40),
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                        overflow: TextOverflow.clip,
+                      ),
+                    ),
+                  ]
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                  children : [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 10, 10),
+                      child: Text(
+                        "Legend",
+                      ),
+                    ),
+                    Text(
+                      "1/2 : Very Dissatisfied",
+                    ),
+                    Text(
+                      "3/4 : Dissatisfied",
+                    ),
+                    Text(
+                      "5/6 :  Neutral",
+                    ),
+                    Text(
+                      "7/8 : Satisfied",
+                    ),
+                    Text(
+                      "9/10 : Very Satisfied",
+                    ),
+                  ]
+                ),
               ),
             SmoothStarRating(
               rating: getRating(),
               isReadOnly: false,
-              size: 30,
+              size: ScreenUtil().setWidth(60),
               filledIconData: Icons.star,
               halfFilledIconData: Icons.star_half,
               defaultIconData: Icons.star_border,
               starCount: 10,
-              allowHalfRating: true,
+              allowHalfRating: false,
               spacing: 2.0,
               onRated: (value) {
                 setRating(value);

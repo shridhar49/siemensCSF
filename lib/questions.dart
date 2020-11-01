@@ -41,7 +41,7 @@ class QuestionsPageState extends State<QuestionsPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(sprintf("Feedback %d/10", [currentPage + 1])),
+          title: Text(sprintf("Feedback Question %d/10", [currentPage + 1])),
         ),
         floatingActionButton: new FloatingActionButton(
             elevation: 18.0,

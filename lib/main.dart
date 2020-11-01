@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 void main() {
+
   runApp(MyApp());
 }
 
@@ -36,21 +39,80 @@ class SplashPageState extends State<SplashPage> {
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
                 (context) =>
-                    MyHomePage(title: "CSF",)
+                    FirstPagePage()
             )
         )
     );
   }
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.white,
-        child: Image.asset(
-          'assets/img/siemens_energy.jpg',
+    ScreenUtil.init(context, designSize: Size(750, 1334), allowFontScaling: true);
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Container(
+            color: Colors.white,
+            child: Center(
+              child: Text("SIEMENS",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: ScreenUtil().setWidth(100),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+            ),
         ),
+      ),
     );
   }
 }
 
 
+
+class FirstPagePage extends StatefulWidget {
+  @override
+  FirstPagePageState createState() => FirstPagePageState();
+}
+class FirstPagePageState extends State<FirstPagePage> {
+  @override
+  void initState() {
+    super.initState();
+
+  }
+  @override
+  Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: Size(750, 1334), allowFontScaling: true);
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text("CSF"),
+        ),
+        body: Container(
+          color: Colors.white,
+          child: Center(
+            child: Text("Request your feedback based on FAT conducted by GIS works, kindly mark your rating for the individual question",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: ScreenUtil().setWidth(50),
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder:
+                    (context) =>
+                    MyHomePage()
+                )
+            );
+          },
+          child: Icon(Icons.navigate_next),
+        ), //
+      ),
+    );
+  }
+}
 

@@ -9,7 +9,7 @@ import 'package:pdf/pdf.dart';
 import 'package:customersatisfactionform/globals.dart' as globals;
 import 'package:sprintf/sprintf.dart';
 import 'package:pdf/widgets.dart' as pw;
-
+import 'package:intl/intl.dart';
 class RNSPage extends StatefulWidget {
   @override
   RNSPageState createState() => RNSPageState();
@@ -324,7 +324,9 @@ class RNSPageState extends State<RNSPage> {
                                     "Product Type : ${globals.typeOfProduct}",
                                   ),
                                   pw.Text(
-                                    "Date : ${globals.dateOfFeedback}",
+                                    "Date : ${DateFormat('dd MMM yyyy').format(
+                                        DateTime.fromMillisecondsSinceEpoch(
+                                            globals.dateOfFeedback))}",
                                   ),
                                 ]
                             )
@@ -335,7 +337,7 @@ class RNSPageState extends State<RNSPage> {
                   ]
                 ),
 
-                pw.Text( "\n(Legend -> 1/2 : Very Dissatisfied, 3/4 : Dissatisfied, 5/6 :  Neutral, 7/8 : Satisfied, 9/10 : Very Satisfied )",),
+                pw.Text( "\n(Legend -> 1/2 : Very Dissatisfied, 3/4 : Dissatisfied,\n 5/6 :  Neutral, 7/8 : Satisfied, 9/10 : Very Satisfied )\n",),
                 pw.Table.fromTextArray(context: context, data: salidas),
                 pw.Text( "\nRemark : ${globals.remark}",),
                 pw.SizedBox(
@@ -343,14 +345,16 @@ class RNSPageState extends State<RNSPage> {
                   width: 50,
                   child: pw.Image(signature),
                 ),
-                pw.Text( "Customers Signature"),
+                pw.Text(
+                  "Customers Signature",
+                    ),
               ])
         ]);
       },
     ));
 
     Directory output = await getApplicationDocumentsDirectory();
-    final bcareport = File("${output.path}/BCAReport.pdf");
+    final bcareport = File("${output.path}/CSF.pdf");
     print(output);
     print(bcareport);
     await bcareport.writeAsBytesSync(pdf.save());
