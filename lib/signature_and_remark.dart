@@ -37,7 +37,7 @@ class SNRPageState extends State<signature_and_remark> {
             child: TextFormField(
               controller: _remark,
               keyboardType: TextInputType.multiline,
-              textInputAction: TextInputAction.newline,
+              textInputAction: TextInputAction.done,
               maxLines: 5,
               maxLength: 250,
               maxLengthEnforced: true,
